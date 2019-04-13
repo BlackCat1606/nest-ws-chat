@@ -1,24 +1,12 @@
-# NestChat
+# NestJs - SocketIO - Angular Chat app
 
-This project was generated using [Nx](https://nx.dev).
-
-<p align="center"><img src="https://raw.githubusercontent.com/nrwl/nx/master/nx-logo.png" width="450"></p>
-
-🔎 **Nx is a set of Angular CLI power-ups for modern development.**
-
-## Quick Start & Documentation
-
-[30-minute video showing all Nx features](https://nx.dev/getting-started/what-is-nx)
-
-[Interactive tutorial](https://nx.dev/tutorial/01-create-application)
-
-## Generate your first application
-
-Run `ng g app myapp` to generate an application. When using Nx, you can create multiple applications and libraries in the same CLI workspace.
+App created for learning new stuff.
 
 ## Development server
 
-Run `ng serve myapp` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+Run `ng serve api` to start api dev server.
+
+Run `ng serve nest-chat` to start front dev server.
 
 ## Code scaffolding
 
@@ -31,10 +19,6 @@ Run `ng build myapp` to build the project. The build artifacts will be stored in
 ## Running unit tests
 
 Run `ng test` to execute the unit tests via [Jest](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Cypress](http://www.protractortest.org/).
 
 ## Further help
 

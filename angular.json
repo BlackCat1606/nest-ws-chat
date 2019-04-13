@@ -7,7 +7,7 @@
       "root": "apps/nest-chat/",
       "sourceRoot": "apps/nest-chat/src",
       "projectType": "application",
-      "prefix": "nest-chat",
+      "prefix": "nc",
       "schematics": {
         "@nrwl/schematics:component": {
           "style": "scss"

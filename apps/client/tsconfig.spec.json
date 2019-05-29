@@ -1,7 +1,7 @@
 {
   "extends": "./tsconfig.json",
   "compilerOptions": {
-    "outDir": "../../dist/out-tsc/apps/nest-chat/",
+    "outDir": "../../dist/out-tsc/apps/client/",
     "types": ["jest", "node"]
   },
   "files": ["src/test-setup.ts"],

@@ -8,7 +8,7 @@
     "nx.json": "*"
   },
   "projects": {
-    "nest-chat": {
+    "client": {
       "tags": []
     },
     "api": {

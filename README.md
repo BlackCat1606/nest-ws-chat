@@ -6,7 +6,7 @@ App created for learning new stuff.
 
 Run `ng serve api` to start api dev server.
 
-Run `ng serve nest-chat` to start front dev server.
+Run `ng serve client` to start front dev server.
 
 ## Code scaffolding
 

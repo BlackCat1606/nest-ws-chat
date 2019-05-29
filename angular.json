@@ -3,9 +3,9 @@
   "version": 1,
   "newProjectRoot": "",
   "projects": {
-    "nest-chat": {
-      "root": "apps/nest-chat/",
-      "sourceRoot": "apps/nest-chat/src",
+    "client": {
+      "root": "apps/client/",
+      "sourceRoot": "apps/client/src",
       "projectType": "application",
       "prefix": "nc",
       "schematics": {
@@ -17,16 +17,16 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/apps/nest-chat",
-            "index": "apps/nest-chat/src/index.html",
-            "main": "apps/nest-chat/src/main.ts",
-            "polyfills": "apps/nest-chat/src/polyfills.ts",
-            "tsConfig": "apps/nest-chat/tsconfig.app.json",
+            "outputPath": "dist/apps/client",
+            "index": "apps/client/src/index.html",
+            "main": "apps/client/src/main.ts",
+            "polyfills": "apps/client/src/polyfills.ts",
+            "tsConfig": "apps/client/tsconfig.app.json",
             "assets": [
-              "apps/nest-chat/src/favicon.ico",
-              "apps/nest-chat/src/assets"
+              "apps/client/src/favicon.ico",
+              "apps/client/src/assets"
             ],
-            "styles": ["apps/nest-chat/src/styles.scss"],
+            "styles": ["apps/client/src/styles.scss"],
             "scripts": [],
             "es5BrowserSupport": true
           },
@@ -34,8 +34,8 @@
             "production": {
               "fileReplacements": [
                 {
-                  "replace": "apps/nest-chat/src/environments/environment.ts",
-                  "with": "apps/nest-chat/src/environments/environment.prod.ts"
+                  "replace": "apps/client/src/environments/environment.ts",
+                  "with": "apps/client/src/environments/environment.prod.ts"
                 }
               ],
               "optimization": true,
@@ -60,26 +60,26 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "nest-chat:build"
+            "browserTarget": "client:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "nest-chat:build:production"
+              "browserTarget": "client:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "nest-chat:build"
+            "browserTarget": "client:build"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "apps/nest-chat/tsconfig.app.json",
-              "apps/nest-chat/tsconfig.spec.json"
+              "apps/client/tsconfig.app.json",
+              "apps/client/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -89,9 +89,9 @@
         "test": {
           "builder": "@nrwl/builders:jest",
           "options": {
-            "jestConfig": "apps/nest-chat/jest.config.js",
-            "tsConfig": "apps/nest-chat/tsconfig.spec.json",
-            "setupFile": "apps/nest-chat/src/test-setup.ts"
+            "jestConfig": "apps/client/jest.config.js",
+            "tsConfig": "apps/client/tsconfig.spec.json",
+            "setupFile": "apps/client/src/test-setup.ts"
           }
         }
       }
@@ -199,5 +199,5 @@
       "style": "scss"
     }
   },
-  "defaultProject": "nest-chat"
+  "defaultProject": "client"
 }

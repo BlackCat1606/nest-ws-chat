@@ -1,6 +1,9 @@
 <mat-toolbar color="primary">
-  <mat-toolbar-row> <span>NestJS Chat App</span> </mat-toolbar-row>
+  <mat-toolbar-row>
+    <span>NestJS Chat App</span>
+    <span class="spacer"></span>
+    <button mat-button [routerLink]="['chat', 'join']">Join</button>
+    <button mat-button [routerLink]="['chat', 'rooms']">Rooms</button>
+  </mat-toolbar-row>
 </mat-toolbar>
-<div class="container">
-  <router-outlet></router-outlet>
-</div>
+<div class="container"><router-outlet></router-outlet></div>

@@ -1,3 +1,12 @@
 <mat-card>
-  <p>join-chat works!</p>
+  <div [formGroup]="joinChatForm">
+    <mat-form-field>
+      <mat-label>Name</mat-label>
+      <input matInput placeholder="Enter your name" formControlName="name" />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" (click)="joinChat()">
+      Join chat
+    </button>
+  </div>
 </mat-card>

@@ -1,18 +1,37 @@
 import {
   SubscribeMessage,
   WebSocketGateway,
-  OnGatewayConnection
+  WebSocketServer,
+  OnGatewayInit,
+  OnGatewayDisconnect
 } from '@nestjs/websockets';
-import { Client } from 'socket.io';
+import { Client, Server } from 'socket.io';
+
+import { UsersService } from './users/users.service';
+
+import { User, ChatEvent } from '@nest-chat/api-interface';
 
 @WebSocketGateway()
-export class ChatGateway implements OnGatewayConnection {
-  handleConnection(client: Client): void {
-    console.log('handleConnection', client.id);
+export class ChatGateway implements OnGatewayInit, OnGatewayDisconnect {
+  @WebSocketServer()
+  server: Server;
+
+  constructor(private usersService: UsersService) {}
+
+  afterInit(): void {
+    this.usersService
+      .getUsers()
+      .subscribe(users =>
+        this.server.sockets.emit(ChatEvent.UpdateUsers, users)
+      );
   }
 
-  @SubscribeMessage('joinServer')
-  handleJoinServer(client: Client, payload: string): void {
-    console.log('joinServer', { payload, client });
+  handleDisconnect(client: Client): void {
+    this.usersService.removeUser(client.id);
+  }
+
+  @SubscribeMessage(ChatEvent.JoinChat)
+  handleJoinServer(client: Client, payload: User): void {
+    this.usersService.addUser({ ...payload, socketId: client.id });
   }
 }

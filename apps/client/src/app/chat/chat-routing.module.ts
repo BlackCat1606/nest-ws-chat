@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
 import { JoinChatComponent } from './join-chat/join-chat.component';
+import { ChatRoomsComponent } from './chat-rooms/chat-rooms.component';
 
 const routes: Routes = [
   {
@@ -12,6 +13,10 @@ const routes: Routes = [
   {
     path: 'join',
     component: JoinChatComponent
+  },
+  {
+    path: 'rooms',
+    component: ChatRoomsComponent
   }
 ];
 

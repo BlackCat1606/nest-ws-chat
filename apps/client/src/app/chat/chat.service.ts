@@ -1,13 +1,19 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Socket } from 'ngx-socket-io';
-import { Observable } from 'rxjs';
+import { Observable, BehaviorSubject } from 'rxjs';
 
 import { User, ChatEvent } from '@nest-chat/api-interface';
 
 @Injectable()
 export class ChatService {
-  constructor(private socket: Socket, private router: Router) {}
+  private usersOnline$: BehaviorSubject<User[]> = new BehaviorSubject([]);
+
+  constructor(private socket: Socket, private router: Router) {
+    this.socket
+      .fromEvent(ChatEvent.UpdateUsers)
+      .subscribe((data: User[]) => this.usersOnline$.next(data));
+  }
 
   public joinChat(user: User): void {
     this.socket.emit(ChatEvent.JoinChat, user);
@@ -15,6 +21,6 @@ export class ChatService {
   }
 
   public getUsers(): Observable<User[]> {
-    return this.socket.fromEvent(ChatEvent.UpdateUsers);
+    return this.usersOnline$.asObservable();
   }
 }
